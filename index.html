@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>По следам слов: цифровое путешествие по эвенскому языку</title>
+<meta name="description" content="«По следам слов»: интерактивный цифровой маршрут по эвенскому языку. Кейс-чемпионат «Цифровое единство: языки народов России». Команда РКИШНИКИ, РУДН.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%230c2531"/><circle cx="12" cy="18" r="4" fill="%232dd4bf"/><circle cx="21" cy="13" r="2.5" fill="%23fbbf24"/></svg>'>
+</head>
+<body>
+
+<!-- SVG-иконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-sun" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="12" fill="currentColor"/>
+      <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+        <line x1="32" y1="6" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="58"/>
+        <line x1="6" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="58" y2="32"/>
+        <line x1="13" y1="13" x2="19" y2="19"/><line x1="45" y1="45" x2="51" y2="51"/>
+        <line x1="51" y1="13" x2="45" y2="19"/><line x1="19" y1="45" x2="13" y2="51"/>
+      </g>
+    </symbol>
+    <symbol id="i-waves" viewBox="0 0 64 64">
+      <path d="M4 22c6-6 12-6 18 0s12 6 18 0 12-6 18 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M4 36c6-6 12-6 18 0s12 6 18 0 12-6 18 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+      <path d="M4 50c6-6 12-6 18 0s12 6 18 0 12-6 18 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+    </symbol>
+    <symbol id="i-yurt" viewBox="0 0 64 64">
+      <path d="M32 8C20 22 13 34 13 50h38C51 34 44 22 32 8z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M13 50h38M26 50V34a6 6 0 0112 0v16" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-paw" viewBox="0 0 64 64">
+      <ellipse cx="32" cy="40" rx="12" ry="10" fill="currentColor"/>
+      <circle cx="16" cy="28" r="6" fill="currentColor"/>
+      <circle cx="27" cy="18" r="6" fill="currentColor"/>
+      <circle cx="39" cy="18" r="6" fill="currentColor"/>
+      <circle cx="49" cy="28" r="6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-pillars" viewBox="0 0 64 64">
+      <path d="M14 54V26c0-6 3-10 7-10s7 4 7 10v28zM36 54V18c0-6 3-10 7-10s7 4 7 10v36z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <line x1="6" y1="54" x2="58" y2="54" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-tree" viewBox="0 0 64 64">
+      <path d="M32 6v46M32 16c-8 2-12 8-13 14 5 0 10-2 13-6m0-4c8 2 12 8 13 14-5 0-10-2-13-6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="20" y1="56" x2="44" y2="56" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24">
+      <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
+      <path d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14m-6-6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-map" viewBox="0 0 24 24">
+      <path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="10" r="2.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24">
+      <path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M4 19a2 2 0 012-2h13" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.5-4.6-9.3-9A5.2 5.2 0 0112 6.6 5.2 5.2 0 0121.3 11c-1.8 4.4-9.3 9-9.3 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Шапка -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top">
+    <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="19" r="4" fill="currentColor" opacity=".9"/>
+      <circle cx="21" cy="12" r="2.6" fill="currentColor" opacity=".55"/>
+    </svg>
+    <span>По следам слов</span>
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="#concept">Идея</a>
+    <a href="#lingua">Язык</a>
+    <a href="#route">Маршрут</a>
+    <a href="#result">Результат</a>
+    <a href="#ethics">Этика</a>
+    <a href="#team">Команда</a>
+  </nav>
+  <a class="nav__cta" href="#route">Начать путь</a>
+  <button class="nav__burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</header>
+
+<!-- Главный экран -->
+<section class="hero" id="top">
+  <div class="hero__sky" aria-hidden="true">
+    <div class="hero__stars"></div>
+    <div class="hero__aurora hero__aurora--1"></div>
+    <div class="hero__aurora hero__aurora--2"></div>
+    <div class="hero__aurora hero__aurora--3"></div>
+    <div class="hero__horizon"></div>
+  </div>
+  <div class="hero__inner">
+    <p class="badge reveal">Кейс-чемпионат «Цифровое единство: языки народов России»</p>
+    <h1 class="hero__title reveal">По&nbsp;следам <em>слов</em></h1>
+    <p class="hero__sub reveal">Цифровое путешествие по эвенскому языку: от точки на карте до живого слова носителя</p>
+    <p class="hero__quote reveal">«Каждая точка на карте - это слово.<br>А за каждым словом - человек, история и культура»</p>
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="#route">Начать путешествие<svg class="btn__icon"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--ghost" href="#concept">О проекте</a>
+    </div>
+    <p class="hero__meta reveal">РУДН имени Патриса Лумумбы · Филологический факультет &amp; Факультет искусственного интеллекта · Команда «РКИШНИКИ»</p>
+  </div>
+  <a class="hero__scroll" href="#concept" aria-label="Листайте вниз"><span></span></a>
+</section>
+
+<!-- Бегущая строка-модель -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Место</span><i>→</i><span>Слово</span><i>→</i><span>Звук</span><i>→</i><span>Задание</span><i>→</i><span>Человек</span><i>→</i><span>История</span><i>→</i><span>Следующая точка</span><i>→</i>
+    <span>Место</span><i>→</i><span>Слово</span><i>→</i><span>Звук</span><i>→</i><span>Задание</span><i>→</i><span>Человек</span><i>→</i><span>История</span><i>→</i><span>Следующая точка</span><i>→</i>
+  </div>
+</div>
+
+<!-- Идея проекта -->
+<section class="section" id="concept">
+  <div class="container">
+    <p class="kicker reveal">01 · Концепция</p>
+    <h2 class="h2 reveal">Мы не создаём очередной электронный словарь.<br><span class="accent">Мы превращаем язык в путешествие.</span></h2>
+    <div class="concept">
+      <div class="concept__text reveal">
+        <p>«По следам слов»: интерактивный цифровой маршрут по карте. Пользователь становится путешественником, которого сопровождает <strong>Энни</strong>, молодой герой, впервые знакомящийся с эвенским языком.</p>
+        <p>Язык изучается не как набор изолированных слов, а через пространство, природу, культуру и встречу с носителем. Финальный результат: личный мини-словарь путешественника.</p>
+        <div class="chain" aria-label="Модель остановки">
+          <span>Карта</span><i>→</i><span>Место</span><i>→</i><span>Слово</span><i>→</i><span>Звук</span><i>→</i><span>Задание</span><i>→</i><span>Культурный контекст</span><i>→</i><span>Следующая точка</span>
+        </div>
+      </div>
+      <ul class="concept__list reveal">
+        <li><b>01</b><div><h3>Видит место</h3><p>каждая остановка маршрута это реальная точка на карте со своей темой</p></div></li>
+        <li><b>02</b><div><h3>Слышит речь</h3><p>слово звучит голосом носителя языка, а не роботом</p></div></li>
+        <li><b>03</b><div><h3>Учит 4-5 слов</h3><p>тематический набор, привязанный к месту и культуре</p></div></li>
+        <li><b>04</b><div><h3>Выполняет задание</h3><p>игровая механика: следы, панорамы, природные сцены</p></div></li>
+        <li><b>05</b><div><h3>Ведёт дневник</h3><p>изученные слова складываются в личный путевой словарь</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Почему эвенский -->
+<section class="section section--alt" id="why">
+  <div class="container">
+    <p class="kicker reveal">02 · Почему эвенский</p>
+    <h2 class="h2 reveal">Язык, в котором живёт тайга</h2>
+    <div class="grid grid--4">
+      <article class="card reveal">
+        <p class="card__num">Коренной народ</p>
+        <h3>Россия многоязычна</h3>
+        <p>Эвенский, язык коренного малочисленного народа России, распространён сразу в нескольких регионах страны.</p>
+      </article>
+      <article class="card reveal">
+        <p class="card__num">Лексика природы</p>
+        <h3>Мир в словах</h3>
+        <p>Богатая лексика о природе: вода, рельеф, животные, растения, жилище и традиционный быт оленеводов.</p>
+      </article>
+      <article class="card reveal">
+        <p class="card__num">20 диалектов</p>
+        <h3>Живая вариативность</h3>
+        <p>До 20 диалектов и говоров, поэтому так важны аудиозаписи носителей и бережная фиксация вариантов.</p>
+      </article>
+      <article class="card reveal">
+        <p class="card__num">Формат пути</p>
+        <h3>Слово привязано к месту</h3>
+        <p>Язык хорошо ложится на маршрут: каждая тематическая остановка связывает слово с конкретным местом и культурным контекстом.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Лингвистическая изюминка -->
+<section class="section" id="lingua">
+  <div class="container">
+    <p class="kicker reveal">03 · Лингвистическая изюминка</p>
+    <h2 class="h2 reveal">Эвенский язык как конструктор</h2>
+    <div class="lingua">
+      <div class="lingua__text reveal">
+        <p>Эвенский язык <strong>агглютинативный</strong>: грамматические значения последовательно присоединяются к основе с помощью суффиксов, словно детали конструктора.</p>
+        <p class="formula">основа + деталь + деталь + деталь = <span class="accent">более точное значение</span></p>
+        <p>Соберите слово сами: нажимайте «добавить суффикс» и посмотрите, как из основы <b>окат</b> получается целое предложение в одном слове.</p>
+      </div>
+      <div class="builder reveal" id="builder">
+        <div class="builder__head">
+          <span class="builder__label">Конструктор слова</span>
+          <span class="builder__step" id="builderStep">этап 0 из 5</span>
+        </div>
+        <div class="builder__word" id="builderWord" aria-live="polite">
+          <span class="builder__base" title="основа">окат</span>
+        </div>
+        <p class="builder__gloss" id="builderGloss">основа: «река»</p>
+        <div class="builder__controls">
+          <button class="btn btn--primary" id="builderAdd">Добавить суффикс<svg class="btn__icon"><use href="#i-arrow"/></svg></button>
+          <button class="btn btn--ghost" id="builderReset">Сбросить</button>
+        </div>
+        <div class="builder__result" id="builderResult" hidden>
+          <b>окатаӈалдулавун</b>: «в наших реках»<br>
+          <span>Основа «река» и пять суффиксов дают фразу в одном слове.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Письменность -->
+<section class="section section--alt" id="alphabet">
+  <div class="container">
+    <p class="kicker reveal">04 · Письменность</p>
+    <h2 class="h2 reveal">36 букв, среди них ӈ, ө и ӫ</h2>
+    <p class="lead reveal">Современный эвенский алфавит. Особые буквы подсвечены. Долгие гласные обозначаются специальным образом.</p>
+    <div class="alphabet reveal" id="alphabetGrid"></div>
+    <div class="note reveal">
+      <svg class="note__icon"><use href="#i-sound"/></svg>
+      <p>Формат работы со словом для начинающего: <b>эвенское написание + аудио носителя + перевод</b>, при необходимости добавляется транскрипция.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Маршрут -->
+<section class="section" id="route">
+  <div class="container">
+    <p class="kicker reveal">05 · Маршрут</p>
+    <h2 class="h2 reveal">Шесть остановок, один путь</h2>
+    <p class="lead reveal">От хребта до среднего течения Лены. Каждая точка даёт тему, набор слов, игру и голос носителя. Выберите остановку на карте.</p>
+
+    <div class="route reveal">
+      <div class="map" id="map">
+        <svg class="map__svg" id="mapSvg" viewBox="0 0 1000 620" role="group" aria-label="Интерактивная карта маршрута">
+          <rect width="1000" height="620" fill="#e9e2c8"/>
+          <g class="map__terrain" aria-hidden="true">
+            <ellipse cx="200" cy="120" rx="270" ry="120" fill="#e2e0c2"/>
+            <ellipse cx="830" cy="520" rx="310" ry="140" fill="#dfe0bf"/>
+            <ellipse cx="470" cy="565" rx="320" ry="115" fill="#e6e3c6"/>
+            <ellipse cx="110" cy="565" rx="200" ry="105" fill="#dde2c2"/>
+            <ellipse cx="910" cy="170" rx="230" ry="120" fill="#e0dfc0"/>
+            <ellipse cx="500" cy="60" rx="260" ry="90" fill="#e4e1c4"/>
+            <path d="M655,-20 C640,120 700,200 690,300 C680,400 730,480 715,640" fill="none" stroke="#a9c6c9" stroke-width="16" stroke-linecap="round" opacity=".8"/>
+            <text x="733" y="350" font-size="20" font-style="italic" fill="#6d8f93" opacity=".8" transform="rotate(80 733 350)">река Лена</text>
+            <text x="55" y="78" font-size="34" font-weight="800" fill="#b9b28f" opacity=".5" letter-spacing="12">ЭВЕНКИЯ</text>
+            <use href="#i-tree" x="136" y="148" width="30" height="30" style="color:#9db38a"/>
+            <use href="#i-tree" x="222" y="122" width="26" height="26" style="color:#9db38a"/>
+            <use href="#i-tree" x="528" y="76" width="30" height="30" style="color:#9db38a"/>
+            <use href="#i-tree" x="588" y="168" width="26" height="26" style="color:#9db38a"/>
+            <use href="#i-tree" x="900" y="452" width="30" height="30" style="color:#9db38a"/>
+            <use href="#i-tree" x="946" y="336" width="26" height="26" style="color:#9db38a"/>
+            <use href="#i-tree" x="46" y="316" width="28" height="28" style="color:#9db38a"/>
+            <use href="#i-tree" x="466" y="452" width="30" height="30" style="color:#9db38a"/>
+            <use href="#i-tree" x="382" y="112" width="26" height="26" style="color:#9db38a"/>
+            <use href="#i-tree" x="806" y="296" width="28" height="28" style="color:#9db38a"/>
+            <use href="#i-tree" x="66" y="470" width="24" height="24" style="color:#9db38a"/>
+            <use href="#i-tree" x="940" y="540" width="26" height="26" style="color:#9db38a"/>
+          </g>
+          <path id="routePathBase" d="M110,480 C190,470 240,430 300,400 C360,370 390,300 430,235 C470,290 520,350 575,380 C640,415 690,300 720,200 C750,150 810,120 870,105" fill="none" stroke="#c9c2a8" stroke-width="14" stroke-linecap="round" stroke-dasharray="19 21"/>
+          <path id="routePath" d="M110,480 C190,470 240,430 300,400 C360,370 390,300 430,235 C470,290 520,350 575,380 C640,415 690,300 720,200 C750,150 810,120 870,105" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-dasharray="19 21"/>
+          <g id="mapPins"></g>
+          <g id="enni" transform="translate(110 480)">
+            <g id="enniFlip">
+              <rect x="-11" y="-16" width="11" height="8" rx="3" fill="#22303a"/>
+              <rect x="0" y="-16" width="11" height="8" rx="3" fill="#22303a"/>
+              <rect x="-9" y="-42" width="7" height="30" rx="3.5" fill="#33424a"/>
+              <rect x="2" y="-42" width="7" height="30" rx="3.5" fill="#33424a"/>
+              <rect x="8" y="-70" width="12" height="22" rx="5" fill="#f59e0b"/>
+              <rect x="-11" y="-74" width="22" height="34" rx="9" fill="#14b8a6"/>
+              <rect x="-11" y="-74" width="22" height="8" rx="4" fill="#fbbf24"/>
+              <circle cx="0" cy="-91" r="12" fill="#3a2c22"/>
+              <circle cx="0" cy="-85" r="10" fill="#ecc39a"/>
+            </g>
+            <g transform="translate(0 -124)">
+              <rect x="-32" y="-15" width="64" height="28" rx="14" fill="#ffffff"/>
+              <text text-anchor="middle" y="5" font-size="15" font-weight="800" fill="#2c3a35">Энни</text>
+            </g>
+          </g>
+        </svg>
+        <div class="map__hud map__hud--top">
+          <span class="map__chip"><svg class="map__chipicon"><use href="#i-map"/></svg>Карта маршрута</span>
+          <span class="map__chip map__chip--progress"><b id="mapProgressLabel">1 из 6</b><span class="map__bar"><i id="mapProgressFill" style="width:16.6%"></i></span></span>
+        </div>
+        <p class="map__hint" id="mapHint">Нажми на доступную точку: Энни отправится туда вместе с тобой</p>
+        <div class="map__hud map__hud--bottom">
+          <span class="map__chip"><svg class="map__chipicon"><use href="#i-book"/></svg>Путевой дневник · <b id="diaryCount">0</b>&nbsp;слов</span>
+        </div>
+      </div>
+      <div class="route__panel" id="routePanel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Результат -->
+<section class="section section--alt" id="result">
+  <div class="container">
+    <p class="kicker reveal">06 · Результат</p>
+    <h2 class="h2 reveal">Что получает путешественник</h2>
+    <div class="stats">
+      <div class="stat reveal"><b data-count="6">0</b><span>тематических остановок</span></div>
+      <div class="stat reveal"><b data-count="30" data-prefix="~">0</b><span>слов в личном словаре</span></div>
+      <div class="stat reveal"><b data-count="20">0</b><span>диалектов и говоров с бережной фиксацией</span></div>
+      <div class="stat reveal"><b data-count="1">0</b><span>путевой дневник со всеми словами</span></div>
+    </div>
+    <div class="grid grid--2">
+      <article class="card reveal">
+        <h3>После одной остановки</h3>
+        <ul class="ticks">
+          <li>4-5 новых слов, привязанных к месту</li>
+          <li>произношение услышано от носителя</li>
+          <li>слово соотнесено с изображением и объектом</li>
+          <li>игровое задание пройдено</li>
+          <li>слово добавлено в личный словарь</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>После шести остановок</h3>
+        <ul class="ticks">
+          <li>около 30 тематических слов</li>
+          <li>базовые речевые конструкции</li>
+          <li>знакомство с агглютинативным принципом языка</li>
+          <li>навык учиться на ошибках: услышать правильный вариант и повторить</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Технологии и этика -->
+<section class="section" id="ethics">
+  <div class="container">
+    <p class="kicker reveal">07 · Как мы это делаем</p>
+    <h2 class="h2 reveal">Технологии, данные и уважение</h2>
+    <div class="grid grid--3">
+      <article class="card reveal">
+        <h3>Реалистичный MVP</h3>
+        <p>Мы не начинаем с голосового ассистента. Первый этап: качественная цифровая фиксация небольшого, но проверенного набора материала.</p>
+        <ul class="chips">
+          <li>веб-прототип / PWA</li><li>интерактивная карта</li><li>6 остановок</li><li>~30 слов</li><li>аудио носителей</li><li>задания и дневник</li><li>ручная лингвопроверка</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <h3>Малый объём данных</h3>
+        <p>Начинаем с малого проверенного набора, а не с большого корпуса. AI может помогать в расшифровке и разметке, но не заменяет проверку носителем.</p>
+        <ul class="chips">
+          <li>метаданные каждой записи: слово, перевод, говор, носитель, дата</li>
+          <li>аудио это первичный материал</li>
+          <li>AI-расшифровка это вспомогательный слой</li>
+        </ul>
+      </article>
+      <article class="card card--warm reveal">
+        <h3>Этика и «Ошибаться можно»</h3>
+        <p>Сервис не наказывает за ошибку: вместо «неправильно» появляется <b>«Почти! Давай ещё раз»</b>, затем путешественник слышит правильный вариант от носителя.</p>
+        <p>Носитель языка: <b>соавтор</b>, а не источник данных. Информированное согласие, право отказаться и удалить запись, сохранение диалектного варианта.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Медиа -->
+<section class="section section--alt" id="media">
+  <div class="container">
+    <p class="kicker reveal">08 · Медиа и PR</p>
+    <h2 class="h2 reveal">Не «язык прошлого», а язык, который можно услышать сегодня</h2>
+    <div class="media">
+      <div class="media__formats reveal">
+        <h3>Форматы</h3>
+        <div class="chips chips--big">
+          <span>«1 место - 1 слово»: короткие видео из каждой точки маршрута</span>
+          <span>«Угадай слово»: интерактивные карточки с животными и природой</span>
+          <span>короткие интервью с носителями</span>
+          <span>студенческий челлендж «Скажи слово на эвенском»</span>
+          <span>публикации о языковом разнообразии России</span>
+        </div>
+      </div>
+      <div class="media__channels reveal">
+        <h3>Каналы</h3>
+        <div class="chips chips--big">
+          <span>VK</span><span>Telegram</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Год единства -->
+<section class="section section--unity" id="unity">
+  <div class="container container--narrow">
+    <p class="kicker kicker--light reveal">09 · Год единства народов России, 2026</p>
+    <blockquote class="unity__quote reveal">«Мы едины не потому, что говорим одинаково, а потому, что умеем <em>слышать</em> языки друг друга»</blockquote>
+    <p class="lead lead--light reveal">РУДН становится площадкой, где иностранные студенты знакомятся с языковым многообразием России: проходят маршрут и записывают короткие видео с выученными словами. Проект объединяет филологию, цифровые технологии, AI, педагогический дизайн и медиа.</p>
+  </div>
+</section>
+
+<!-- Команда -->
+<section class="section" id="team">
+  <div class="container">
+    <p class="kicker reveal">10 · Команда</p>
+    <h2 class="h2 reveal">РКИШНИКИ</h2>
+    <p class="lead reveal">Филологический факультет &amp; факультет искусственного интеллекта РУДН имени Патриса Лумумбы</p>
+    <div class="team" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- Подвал -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__model" aria-hidden="true">
+      <span>Место</span><i>→</i><span>Слово</span><i>→</i><span>Звук</span><i>→</i><span>Задание</span><i>→</i><span>Человек</span><i>→</i><span>История</span><i>→</i><span>Следующая точка</span>
+    </div>
+    <p class="footer__quote">«Язык - это не набор слов. Это способ увидеть мир»</p>
+    <div class="footer__grid">
+      <div>
+        <h3>Маршрут</h3>
+        <p>Хатастыр → Озеро Биллях → Этно-база «Бута» → Бутома → Ленские столбы → Олёкма</p>
+      </div>
+      <div>
+        <h3>Финальный результат</h3>
+        <p>~30 слов, 6 тематических модулей, аудио носителей, задания и личный путевой словарь.</p>
+      </div>
+      <div>
+        <h3>Проект</h3>
+        <p>Кейс-чемпионат «Цифровое единство: языки народов России». Год единства народов России, 2026.</p>
+      </div>
+    </div>
+    <p class="footer__credits">Сделано командой «РКИШНИКИ» · РУДН имени Патриса Лумумбы</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
